@@ -1,7 +1,18 @@
 <template>
   <div id="MainLayout" class="w-full fixed z-50">
     <div id="TopMenu" class="w-full bg-[#FAFAFAF] border-b md:block hidden">
-      <ul class="flex items-center justify-end text-xs text-[#333333] font-light px-2 h-10 bg-[#FAFAFA] max-w-[1200px]">
+
+      <ul class="flex
+            items-center
+            justify-end
+            text-xs
+            text-[#333333]
+            font-light
+            px-2
+            h-10
+            bg-[#FAFAFA]
+            max-w-[1200-px]">
+
         <li @mouseenter="isHelpMenu = true" @mouseleave="isHelpMenu = false"
           class="relative flex items-center px-2.5 hover:text-[#FF4646] h-full cursor-pointer" :class="isHelpMenu
             ? 'bg-white border z-40 shadow-[0_15px_100px_40px_rgba(0,0,0,0.3)]'
@@ -24,6 +35,7 @@
 
           <Icon name="mdi:chevron-down" size="17" />
         </li>
+
         <li class="px-3 hover:text-[#FF4646] cursor-pointer">Alici Korumasi</li>
         <li class="border-r border-r-gray-400 px-3 hover:text-[#FF4646] cursor-pointer">
           <Icon name="ic:sharp-install-mobile" size="17" />
