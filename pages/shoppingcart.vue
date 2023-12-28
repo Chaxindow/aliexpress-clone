@@ -1,20 +1,14 @@
 <template>
     <MainLayout>
         <div id="ShoppingCartPage" class="mt-4 max-w-[1200px] mx-auto px-2">
-            <div v-if="false" class="h-[500px] flex items-center justify-center">
+            <div v-if="true" class="h-[500px] flex items-center justify-center">
                 <div class="pt-20">
-                    <img
-                        class="mx-auto"
-                        width="250"
-                        src="/cart-empty.png"                   
-                    >
+                    <img class="mx-auto" width="250" src="/cart-empty.png">
 
                     <div class="text-xl text-center mt-4">No items yet? Continue shopping to explore more.</div>
 
                     <div v-if="true" class="flex text-center">
-                        <NuxtLink 
-                            to="/auth"
-                            class="
+                        <NuxtLink to="/auth" class="
                                 bg-[#FD374F] 
                                 w-full 
                                 text-white 
@@ -23,8 +17,7 @@
                                 p-1.5 
                                 rounded-full
                                 mt-4
-                            "
-                        >
+                            ">
                             Sign in
                         </NuxtLink>
                     </div>
@@ -45,11 +38,8 @@
 
                     <div id="Items" class="bg-white rounded-lg p-4 mt-4">
                         <div v-for="product in products">
-                            <CartItem
-                                :product="product"
-                                :selectedArray="selectedArray"
-                                @selectedRadio="selectedRadioFunc"
-                            />
+                            <CartItem :product="product" :selectedArray="selectedArray"
+                                @selectedRadio="selectedRadioFunc" />
                         </div>
                     </div>
                 </div>
@@ -65,9 +55,7 @@
                                 $ <span class="font-extrabold">{{ totalPriceComputed }}</span>
                             </div>
                         </div>
-                        <button 
-                            @click="goToCheckout"
-                            class="
+                        <button @click="goToCheckout" class="
                                 flex
                                 items-center
                                 justify-center
@@ -79,8 +67,7 @@
                                 p-1.5 
                                 rounded-full
                                 mt-4
-                            "
-                        >
+                            ">
                             Checkout
                         </button>
                     </div>
@@ -106,8 +93,8 @@ const userStore = useUserStore()
 
 let selectedArray = ref([])
 
-onMounted(()=> {
-    setTimeout(()=> userStore.isLoading = false,200)
+onMounted(() => {
+    setTimeout(() => userStore.isLoading = false, 200,)
 })
 
 const cards = ref([
@@ -126,16 +113,16 @@ const totalPriceComputed = computed(() => {
 })
 
 const selectedRadioFunc = (e) => {
-    if(!selectedArray.value.length) {
+    if (!selectedArray.value.length) {
         selectedArray.value.push(e)
         return
     }
 
     selectedArray.value.forEach((item, index) => {
-        if(e.id != item.id) {
+        if (e.id != item.id) {
             selectedArray.value.push(e)
-        } else{
-            selectedArray.value.splice(index,1);
+        } else {
+            selectedArray.value.splice(index, 1);
         }
     })
 }
@@ -145,9 +132,9 @@ const goToCheckout = () => {
     userStore.checkout = []
 
     selectedArray.value.forEach(item => ids.push(item.id))
-    
-    let res = userStore.cart.filter((item)=>{
-        return ids.indexOf(item.id) != -1 
+
+    let res = userStore.cart.filter((item) => {
+        return ids.indexOf(item.id) != -1
     })
 
     res.forEach(item => userStore.checkout.push(toRaw(item)))
@@ -157,9 +144,9 @@ const goToCheckout = () => {
 
 
 const products = [
-        {id: 1, title: "Title 1", description: "This is a description", url:"https://picsum.photos/id/5/500/500",price: 9899},
-        {id: 2, title: "Title 2", description: "This is a description", url:"https://picsum.photos/id/8/300/300",price: 9699},
-       
+    { id: 1, title: "Title 1", description: "This is a description", url: "https://picsum.photos/id/122/500/500", price: 9899 },
+    { id: 2, title: "Title 2", description: "This is a description", url: "https://picsum.photos/id/18/300/300", price: 9699 },
+
 ]
 
 
