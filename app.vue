@@ -16,6 +16,9 @@ const route = useRoute()
 
 let windowWidth = ref(process.client ? window.innerWidth : '')
 
+
+// Yükleme ekranları için sayfa yüklenirken
+
 onMounted(() => {
   userStore.isLoading = false
   window.addEventListener('resize', function () {

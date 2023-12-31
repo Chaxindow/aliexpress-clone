@@ -59,7 +59,7 @@
             ">
           <Icon name="ph:user-thin" size="14" />
           Hesap
-          <Icon :name="isAccountMenu ? 'mdi:chevron-up' : 'mdi:chevron-down'" :size="14" />
+          <Icon :name="isAccountMenu ? 'mdi:chevron-up' : 'mdi:chevron-down'" size="14" />
 
           <div id="AccountMenu" v-if="isAccountMenu"
             class="absolute bg-white w-[220px] text-[#333333] z-40 top-[38px] -left-[100px] border-x border-b">
