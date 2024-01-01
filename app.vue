@@ -20,7 +20,7 @@ let windowWidth = ref(process.client ? window.innerWidth : '')
 // Yükleme ekranları için sayfa yüklenirken
 
 onMounted(() => {
-  userStore.isLoading = false
+  userStore.isLoading = true
   window.addEventListener('resize', function () {
     windowWidth.value = window.innerWidth;
   });
@@ -33,6 +33,6 @@ watch(() => windowWidth.value, () => {
 })
 
 watch(() => route.fullPath, () => {
-  userStore.isLoading = false
+  userStore.isLoading = true
 })
 </script>
